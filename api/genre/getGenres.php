@@ -7,30 +7,39 @@
     error_reporting(0);	
     
     $sql = 'select * from genre order by createdDate desc';
-
     $array_genre = array();
 
-	if ($result = mysqli_query($conn, $sql)) {
-        while ($row = mysqli_fetch_assoc($result)) {
-            $genre = new Genre;
-            $genre->id = $row['id'];
-            $genre->name = $row['name'];
-            $genre->createdDate = $row['createdDate'];
-            $genre->modifiedDate = $row['modifiedDate'];
-            array_push($array_genre, $genre);
+    try{
+        if ($result = mysqli_query($conn, $sql)) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $genre = new Genre;
+                $genre->id = $row['id'];
+                $genre->name = $row['name'];
+                $genre->createdDate = $row['createdDate'];
+                $genre->modifiedDate = $row['modifiedDate'];
+                array_push($array_genre, $genre);
+            }
+
+            $success = new Success;
+            $success->success = true;
+            $success->data = $array_genre;
+            echo json_encode($success);
+        } 
+        else {
+            $error = new CustomError;
+            $error->code = 400;
+            $error->description = "Get Genre List: ". mysqli_error($conn);
+            $error->success = false;
+            echo json_encode($error);
         }
 
-        $success = new Success;
-        $success->success = true;
-        $success->data = $array_genre;
-        echo json_encode($success);
-	} 
-	else {
+        mysqli_close($conn);
+    }
+    catch(Exception $e){
         $error = new CustomError;
-        $error->description = "Get Genre List: ". mysqli_error($conn);
+        $error->code = 500;
+        $error->description = "Get Genre List: ". $e->getMessage();
         $error->success = false;
         echo json_encode($error);
     }
-
-    mysqli_close($conn);
 ?>

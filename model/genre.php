@@ -1,6 +1,6 @@
 <?php
 	class Genre{
-		public $id = null;
+		public $genreId = null;
 		public $name = null;
 		public $createdDate = null;
 		public $modifiedDate = null;

@@ -1,6 +1,6 @@
 <?php
 	class Settings{
-		public $id = null;
+		public $settingId = null;
 		public $key = null;
 		public $value = null;
 		public $createdDate = null;

@@ -1,6 +1,6 @@
 <?php
 	class User{
-		public $id = null;
+		public $userId = null;
 		public $firstName = null;
 		public $lastName = null;
 		public $displayName = null;

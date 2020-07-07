@@ -1,10 +1,12 @@
 <?php
 	class Comment{
-		public $id = null;
+		public $commentId = null;
 		public $userId = null;
-		public $movieId = null;
+		public $reviewId = null;
 		public $description = null;
+		public $parentId = null;
 		public $createdDate = null;
 		public $modifiedDate = null;
+		public $active = null;
 	}
 ?>

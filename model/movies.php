@@ -1,17 +1,19 @@
 <?php
 	class Movies{
-		public $id = null;
+		public $movieId = null;
 		public $title = null;
-		public $overview = null;
-		public $tagline = null;
-		public $voteAverage = null;
+		public $synopsis = null;
+		public $director = null;
+		public $cast = null;
+		public $genres = null;
 		public $backdrop = null;
 		public $poster = null;
-        public $popularity = null;
-        public $adult = null;
         public $budget = null;
 		public $imdbId = null;
 		public $type = null;
+		public $year = null;
+		public $duration = null;
+		public $views = null;
 		public $createdDate = null;
 		public $modifiedDate = null;
 	}

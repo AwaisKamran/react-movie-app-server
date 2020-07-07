@@ -6,16 +6,18 @@
     include('../../model/comment.php');
     error_reporting(0);	
     
-    $sql = 'select * from comment where userId='. $_GET['userId'] .' order by createdDate desc';
+    $sql = 'select * from comment where reviewId='. $_GET['reviewId'] .' order by createdDate desc';
     $array_comments = array();
+
     try{
         if ($result = mysqli_query($conn, $sql)) {
             while ($row = mysqli_fetch_assoc($result)) {
                 $comments = new Comment;
                 $comments->id = $row['id'];
                 $comments->userId = $row['userId'];
-                $comments->movieId = $row['movieId'];
+                $comments->reviewId = $row['reviewId'];
                 $comments->description = $row['description'];
+                $comments->parentId = $row['parentId'];
                 $comments->createdDate = $row['createdDate'];
                 $comments->modifiedDate = $row['modifiedDate'];
                 $comments->active = $row['active'];

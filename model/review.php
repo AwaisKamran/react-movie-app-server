@@ -1,6 +1,6 @@
 <?php
 	class Review{
-		public $id = null;
+		public $reviewId = null;
 		public $userId = null;
 		public $movieId = null;
 		public $title = null;
@@ -8,5 +8,6 @@
 		public $description = null;
 		public $createdDate = null;
 		public $modifiedDate = null;
+		public $active = true;
 	}
 ?>
