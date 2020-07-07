@@ -1,0 +1,36 @@
+<?php
+    include('../../cors.php');
+    include('../../connection.php');
+    include('../../model/error.php');
+    include('../../model/success.php');
+    include('../../model/genre.php');
+    error_reporting(0);	
+    
+    $sql = 'select * from genre where id='.$_GET['genreId'];
+
+    $array_genre = array();
+
+	if ($result = mysqli_query($conn, $sql)) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $genre = new Genre;
+            $genre->id = $row['id'];
+            $genre->name = $row['name'];
+            $genre->createdDate = $row['createdDate'];
+            $genre->modifiedDate = $row['modifiedDate'];
+            array_push($array_genre, $genre);
+        }
+
+        $success = new Success;
+        $success->success = true;
+        $success->data = $array_genre;
+        echo json_encode($success);
+	} 
+	else {
+        $error = new CustomError;
+        $error->description = "Get Genre By Id: ". mysqli_error($conn);
+        $error->success = false;
+        echo json_encode($error);
+    }
+
+    mysqli_close($conn);
+?>

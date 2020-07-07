@@ -6,7 +6,7 @@
     include('../../model/review.php');
     error_reporting(0);	
     
-    $sql = 'select id, userId, movieId, rating, description, createdDate from reviews where movieId='. $_GET['movieId'] .' order by createdDate desc';
+    $sql = 'select id, userId, movieId, rating, description, createdDate, modifiedDate from reviews where movieId='. $_GET['movieId'] .' order by createdDate desc';
 
     $array_reviews = array();
 
@@ -17,7 +17,8 @@
             $review->userId = $row['userId'];
             $review->movieId = $row['movieId'];
             $review->description = $row['description'];
-		    $review->createdDate = $row['createdDate'];
+            $review->createdDate = $row['createdDate'];
+            $review->modifiedDate = $row['modifiedDate'];
             array_push($array_reviews, $review);
         }
 

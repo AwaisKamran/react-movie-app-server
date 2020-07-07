@@ -1,12 +1,10 @@
 <?php
-	class Review{
+	class Announcement{
 		public $id = null;
-		public $userId = null;
-		public $movieId = null;
-		public $title = null;
-		public $rating = null;
 		public $description = null;
+		public $type = null;
 		public $createdDate = null;
+		public $endDate = null;
 		public $modifiedDate = null;
 	}
 ?>

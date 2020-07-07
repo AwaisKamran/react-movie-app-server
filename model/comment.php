@@ -1,9 +1,10 @@
 <?php
-	class Discussion{
+	class Comment{
 		public $id = null;
 		public $userId = null;
 		public $movieId = null;
-		public $text = null;
+		public $description = null;
 		public $createdDate = null;
+		public $modifiedDate = null;
 	}
 ?>

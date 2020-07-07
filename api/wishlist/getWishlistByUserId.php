@@ -14,9 +14,10 @@
         while ($row = mysqli_fetch_assoc($result)) {
             $wishlist = new Wishlist;
             $wishlist->id = $row['id'];
-            $wishlist->id = $row['userId'];
-            $wishlist->id = $row['movieId'];
-            $wishlist->id = $row['createdDate'];          
+            $wishlist->userId = $row['userId'];
+            $wishlist->movieId = $row['movieId'];
+            $wishlist->createdDate = $row['createdDate'];     
+            $wishlist->modifiedDate = $row['modifiedDate'];          
             array_push($array_wishlist, $user);
         }
 

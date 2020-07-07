@@ -10,7 +10,7 @@
     $flaggedReason = $data['description'];
     $userId = $data['id'];
 
-    $sql = "Update user set flagged='$flagged', flaggedReason='$flaggedReason' where id='$userId'";
+    $sql = "Update user set flagged='$flagged', flaggedReason='$flaggedReason', modifiedDate=GETDATE() where id='$userId'";
     	
 	if (mysqli_query($conn, $sql)) {
         $success = new Success;

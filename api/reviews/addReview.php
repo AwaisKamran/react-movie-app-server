@@ -8,10 +8,11 @@
     $data = json_decode(file_get_contents("php://input"), true)['data'];
     $userId = $data['userId'];
     $movieId = $data['movieId'];
+    $title = $data['title'];
     $description = $data['description'];
     $rating = $data['rating'];
 
-    $sql = "INSERT INTO reviews (userId, movieId, rating, description) VALUES ('$userId', '$movieId', '$rating', '$description')";
+    $sql = "INSERT INTO reviews (userId, movieId, title, rating, description) VALUES ('$userId', '$movieId', '$title' ,'$rating', '$description')";
     	
 	if (mysqli_query($conn, $sql)) {
         $success = new Success;

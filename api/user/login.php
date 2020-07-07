@@ -16,15 +16,18 @@
 	if (mysqli_num_rows($result) > 0) {       
         while ($row = mysqli_fetch_assoc($result)) {
             $user = new User;
-            $user = new User;
             $user->id = $row['id'];
-            $user->name = $row['name'];
+            $user->firstName = $row['firstName'];
+            $user->lastName = $row['lastName'];
+            $user->displayName = $row['displayName'];
             $user->email = $row['email'];
             $user->password = $row['password'];
             $user->flagged = $row['flagged'];
             $user->flaggedReason = $row['flaggedReason'];
             $user->type = $row['type'];
             $user->active = $row['active'];
+            $user->createdDate = $row['createdDate'];
+            $user->modifiedDate = $row['modifiedDate'];
         }
 
         $success = new Success;

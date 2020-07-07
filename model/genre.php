@@ -1,8 +1,7 @@
 <?php
-	class Wishlist{
+	class Genre{
 		public $id = null;
-		public $userId = null;
-		public $movieId = null;
+		public $name = null;
 		public $createdDate = null;
 		public $modifiedDate = null;
 	}

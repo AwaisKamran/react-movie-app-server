@@ -9,7 +9,7 @@
     $active = $data['value'];
     $userId = $data['id'];
 
-    $sql = "Update user set active='$active' where id='$userId'";
+    $sql = "Update user set active='$active', modifiedDate=GETDATE() where id='$userId'";
     	
 	if (mysqli_query($conn, $sql)) {
         $success = new Success;

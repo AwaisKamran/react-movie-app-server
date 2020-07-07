@@ -6,11 +6,11 @@
     error_reporting(0);	
     
     $data = json_decode(file_get_contents("php://input"), true)['data'];
-    $text = $data['text'];
+    $description = $data['description'];
     $userId = $data['userId'];
     $movieId = $data['movieId'];
 
-    $sql = "INSERT INTO discussion (userId, movieId, text) VALUES ('$userId', '$movieId', '$text')";
+    $sql = "INSERT INTO comments (userId, movieId, description) VALUES ('$userId', '$movieId', '$description')";
     	
 	if (mysqli_query($conn, $sql)) {
         $success = new Success;
@@ -20,7 +20,7 @@
 	} 
 	else {
         $error = new CustomError;
-        $error->description = "Add Discussion: ". mysqli_error($conn);
+        $error->description = "Add Comments: ". mysqli_error($conn);
         $error->success = false;
         echo json_encode($error);
     }
